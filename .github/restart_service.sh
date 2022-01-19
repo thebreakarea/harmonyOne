@@ -51,10 +51,6 @@ if [ $to_sign_first_check -ge $signed_first_check ]; then
             echo $signed_second_check > /home/harmony/signed_second_check.dat
             second_signed_difference=$((to_sign_second_check - signed_second_check))
             
-            if [$first_signed_difference -eq $second_signed_difference ]; then
-            echo $first_signed_difference > /home/harmony/to_sign_golden_reference.dat
-            fi
-            
             echo "Second difference: " $second_signed_difference>> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
             total_difference=$((second_signed_difference - first_signed_difference))
                     if [ $total_difference -ge 5 ]; then   
@@ -80,7 +76,9 @@ if [ $to_sign_first_check -ge $signed_first_check ]; then
                 else
                       echo "Total difference: " $total_difference>> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
                       echo "No action are needed at this time.">> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
+                      echo "Storing golden reference: "$first_signed_difference>> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
                       echo -e "\n\n" >> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
+                      echo $first_signed_difference > /home/harmony/to_sign_golden_reference.dat
                 fi
                 
 fi
