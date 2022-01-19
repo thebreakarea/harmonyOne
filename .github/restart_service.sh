@@ -64,7 +64,7 @@ if [ $to_sign_first_check -ge $signed_first_check ]; then
                     fi
                 else
                 echo "Total difference: " $total_difference>> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
-                echo "No action are needed at this time.>> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
+                echo "No action are needed at this time.">> /home/harmony/log_signature_check_$(date +"%Y_%m_%d").log
                 fi
                 
 fi
