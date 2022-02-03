@@ -15,7 +15,7 @@
 base_path_location=/home/harmony/
 #
 #Get current epoch number
-current_epoch=$(/home/harmony/hmy --node="https://api.s0.t.hmny.io" blockchain validator information one192wqdhlk84lvxmrd6jl9l9njy7f94q4a3hd87w | grep last-epoch-in-committee | awk 'NR==1 { print$2}' | sed 's/,//')
+current_epoch=$(/home/harmony/hmy --node="https://api.s0.t.hmny.io" blockchain validator information Your_ONE_Address_Here | grep last-epoch-in-committee | awk 'NR==1 { print$2}' | sed 's/,//')
 #
 #Determine file location
 validator_information_file="$base_path_location"validator_epoch_"$current_epoch".out
@@ -26,5 +26,5 @@ validator_information_file="$base_path_location"validator_epoch_"$current_epoch"
   then
    echo -e "File validator_epoch_""$current_epoch"".out exists, no action are needed\nTest run at" $(date) "\n" >>"$base_path_location"validator_information_simple.log
  else
-   /home/harmony/hmy --node="https://api.s0.t.hmny.io" blockchain validator information one192wqdhlk84lvxmrd6jl9l9njy7f94q4a3hd87w >>"$base_path_location"validator_epoch_"$current_epoch".out
+   /home/harmony/hmy --node="https://api.s0.t.hmny.io" blockchain validator information Your_ONE_Address_Here >>"$base_path_location"validator_epoch_"$current_epoch".out
  fi
